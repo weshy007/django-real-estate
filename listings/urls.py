@@ -1,5 +1,7 @@
 from . import views
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.listing_houses, name=('listings')),
@@ -10,3 +12,6 @@ urlpatterns = [
     path('listings/<pk>/delete/', views.listing_delete, name=('listing-delete')),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

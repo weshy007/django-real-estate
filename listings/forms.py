@@ -6,9 +6,11 @@ class ListingForm(ModelForm):
         model = Listing
         fields = [
             'title',
+            'description',
             'price',
             'num_ofbedroom',
             'num_bathroom',
             'square_footage',
-            'address'
+            'address',
+            'image'
         ]
