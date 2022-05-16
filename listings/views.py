@@ -12,8 +12,13 @@ def listing_houses(request):
     }
     return render(request, 'listings.html', context)
 
-def listing_(request):
-    pass
+# SHOWING THE DETAILS OF A SPECIFIC HOUSE
+def listing_detail(request, pk):
+    listing = Listing.objects.get(pk=pk)
+    context = {
+        "listing": listing
+    }
+    return render(request, "listing_details.html", context)
 
 def listing_list(request):
     pass
