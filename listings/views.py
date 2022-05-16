@@ -30,15 +30,31 @@ def listing_create(request):
         if form.is_valid():
             form.save()
             return redirect("/")
-            
+
     # If the form is not valid, they are directed to submit another form
     context = {
         'form': form
     }
     return render(request, 'listing_create.html', context)
 
-def listing_update(request):
-    pass
+# UPDATING DETAILS FROM A SPECIFIC HOUSE
+def listing_update(request, pk):
+    listing = Listing.objects.get(pk=pk)
+    form = ListingForm(instance=listing)
 
-def listing_delete(request):
-    pass
+    if request.method == " POST":
+        form = ListingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+            
+    # If the form is not valid, they are directed to submit another form
+    context = {
+        'form': form
+    }
+    return render(request, 'listing_update.html', context)
+
+def listing_delete(request, pk):
+    listing = Listing.objects.get(pk=pk)
+    listing.delete()
+    return redirect("/")
