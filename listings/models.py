@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Listings(models.Model):
+class Listing(models.Model):
     title = models.CharField(max_length=100)
     price = models.IntegerField()
     num_ofbedroom = models.IntegerField(blank=True, null=True)
