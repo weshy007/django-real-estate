@@ -1,4 +1,5 @@
 ## django real estate app
+- CRUD Django App
 
 ## Project Installation
     ** Clone Project**
